@@ -1,0 +1,36 @@
+---
+title: "Bike shops Zofingen"
+author: "Andreas Haager"
+date: "4/9/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+This web page shows bike shops in Zofingen.
+
+
+```{r cars}
+date()
+
+data <- read.csv("/Users/andreashaager/coursera/RegulizedRegression & MaschineLearning/coordinates.csv", header = TRUE)
+
+library(leaflet)
+ ciscoIcon <- makeIcon(
+     iconUrl = "https://previews.123rf.com/images/miceking/miceking1506/miceking150600568/40822953-Cycle-Racing-Silhouette-Stock-Vector.jpg", 
+    iconWidth = 31*215/230, iconHeight = 91,
+     iconAnchorX = 31*215/230/2, iconAnchorY = 46
+ )
+ ciscoLatLong <- data.frame(
+     lat = c(data$lat),
+     lng = c(data$long))
+ 
+ ciscoLatLong %>%
+     leaflet() %>%
+     addTiles() %>%
+     addMarkers(icon = ciscoIcon)
+```
+
