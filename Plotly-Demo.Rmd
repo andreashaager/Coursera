@@ -1,0 +1,35 @@
+---
+title: "Ploty demo"
+author: "Andreas Haager"
+date: "4/16/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This html shows a Plot of the mt cars dataset in r.
+The graph is generated using plotly.
+
+
+```{r date, echo=FALSE}
+date()
+```
+
+```{r library, echo=FALSE}
+# summary(mtcars)
+library(plotly)
+```
+
+## Plot of weight vrs mpg, color by cylinder and size by horse power
+
+
+```{r hp, echo=FALSE}
+plot_ly(mtcars, x = mtcars$wt , y = mtcars$mpg, mode = "markers",
+        color = as.factor(mtcars$cyl), size = mtcars$hp)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
