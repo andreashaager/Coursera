@@ -1,36 +1,49 @@
 ---
-title: "Bike shops Zofingen"
+title: "Bike Shops in Zofingen"
 author: "Andreas Haager"
-date: "4/9/2017"
-output: html_document
+date: "4/17/2017"
+output: slidy_presentation
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+{knitr::opts_chunk$set(message = F)} 
 ```
 
-## R Markdown
-This web page shows bike shops in Zofingen.
+## This web page shows bike shops in Zofingen.
 
 
 ```{r cars}
 date()
 
-data <- read.csv("/Users/andreashaager/coursera/RegulizedRegression & MaschineLearning/coordinates.csv", header = TRUE)
+```
+
+## Slide with Map
+
+```{r map}
+
+name <- c("Bike1", "Gelatti", "Bike2")
+lat <-  c(47.287521, 47.289607,47.278736)
+lng <- c(7.939442,7.944391,7.947025)
+size <- c(200, 10, 400)
+
+data <- data.frame(name, lat, lng, size)
+
 
 library(leaflet)
  ciscoIcon <- makeIcon(
      iconUrl = "https://previews.123rf.com/images/miceking/miceking1506/miceking150600568/40822953-Cycle-Racing-Silhouette-Stock-Vector.jpg", 
-    iconWidth = 31*215/230, iconHeight = 91,
-     iconAnchorX = 31*215/230/2, iconAnchorY = 46
+    iconWidth = 31*215/230, iconHeight = 61,
+     iconAnchorX = 31*215/230/2, iconAnchorY = 36
  )
  ciscoLatLong <- data.frame(
      lat = c(data$lat),
-     lng = c(data$long))
+     lng = c(data$lng))
  
  ciscoLatLong %>%
      leaflet() %>%
      addTiles() %>%
      addMarkers(icon = ciscoIcon)
+```
 ```
 
