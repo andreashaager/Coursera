@@ -1,0 +1,40 @@
+---
+title: "Demo Ploty"
+author: "Andreas Haager"
+date: "4/17/2017"
+output: ioslides_presentation
+---
+
+First Slide
+========================================================
+
+
+## This html shows a Plot of the mtcars dataset in r. The graph is generated using plotly.
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+{knitr::opts_chunk$set(message = F)} 
+
+```
+
+
+```{r date, echo=FALSE}
+date()
+```
+
+Slide with a Plot of weight vrs mpg, color by cylinder and size by horse power
+========================================================
+```{r library, echo=FALSE}
+# summary(mtcars)
+library(plotly)
+library(webshot)
+```
+```{r hp, echo=FALSE} 
+plot_ly(mtcars, x = mtcars$wt , y = mtcars$mpg, mode = "markers",
+        color = as.factor(mtcars$cyl), size = mtcars$hp)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
