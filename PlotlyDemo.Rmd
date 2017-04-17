@@ -2,7 +2,9 @@
 title: "Demo Ploty"
 author: "Andreas Haager"
 date: "4/17/2017"
-output: ioslides_presentation
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
 ---
 
 First Slide
@@ -34,7 +36,4 @@ library(webshot)
 plot_ly(mtcars, x = mtcars$wt , y = mtcars$mpg, mode = "markers",
         color = as.factor(mtcars$cyl), size = mtcars$hp)
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
 
